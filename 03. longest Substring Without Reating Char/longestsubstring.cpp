@@ -1,23 +1,23 @@
-#include <bits/stdc++.h>
-using namespace std;
 class Solution {
 public:
-    int lengthOfLongestSubstring(string s) {
-        unordered_map<char, int> mp;
-        int left = 0;
-        int ans = 0;
+    ListNode* addTwoNumbers(ListNode* l1, ListNode* l2) {
+        ListNode* dummy = new ListNode(0);
+        ListNode* curr = dummy;
+        int carry = 0;
 
-        for (int right = 0; right < s.size(); right++) {
+        while (l1 || l2 || carry) {
+            int sum = carry;
 
-            if (mp.count(s[right]) && mp[s[right]] >= left) {
-                left = mp[s[right]] + 1;
+            if (l1) {
+                sum += l1->val;
+                l1 = l1->next;
             }
 
-            mp[s[right]] = right;
+            if (l2) {
+                sum += l2->val;
+                l2 = l2->next;
+            }
 
-            ans = max(ans, right - left + 1);
-        }
-
-        return ans;
-    }
-};
+            carry = sum / 10;
+            curr->next = new ListNode(sum % 10);
+   
