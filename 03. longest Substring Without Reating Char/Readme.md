@@ -1,25 +1,39 @@
-3. Longest Substring Without Repeating Characters
-Medium
+LeetCode 2. Add Two Numbers
+Problem Statement
 
-Given a string s, find the length of the longest substring without duplicate characters.
+You are given two non-empty linked lists representing two non-negative integers. The digits are stored in reverse order, and each node contains a single digit.
 
-**Example 1:**
-Input: s = "abcabcbb"
-Output: 3
-Explanation: The answer is "abc", with the length of 3. Note that "bca" and "cab" are also correct answers.
+Add the two numbers and return the sum as a linked list.
 
-**Example 2:**
-Input: s = "bbbbb"
-Output: 1
-Explanation: The answer is "b", with the length of 1.
+Example
+Plain Text
+1
+Input:
+2
+l1 = [2,4,3]
+3
+l2 = [5,6,4]
+4
+ 
+5
+Output:
+6
+[7,0,8]
+7
+ 
+8
+Explanation:
+9
+342 + 465 = 807
+Show more lines
+Approach
 
-**Example 3:**
-Input: s = "pwwkew"
-Output: 3
-Explanation: The answer is "wke", with the length of 3.
-Notice that the answer must be a substring, "pwke" is a subsequence and not a substring.
- 
+We simulate the same process used in elementary addition:
 
-Constraints:
-0 <= s.length <= 105
-s consists of English letters, digits, symbols and spaces.
+Traverse both linked lists simultaneously.
+Add the current digits along with any carry from the previous step.
+Create a new node containing sum % 10.
+Update carry as sum / 10.
+Continue until both lists are exhausted and no carry remains.
+
+A dummy node is used to simplify the construction of the result linked list.
