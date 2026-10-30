@@ -195,7 +195,6 @@ public:
                 ans.push_back(__builtin_popcount(mask) <= 1);
             }
         }
-
         return ans;
     }
 };
